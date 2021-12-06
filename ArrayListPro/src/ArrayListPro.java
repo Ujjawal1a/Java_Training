@@ -16,83 +16,26 @@ public class ArrayListPro {
 		list.add(new Employee("Jai", 52, 974863));
 		list.add(new Employee("Veeru", 64, 52642));
 		
-		forloop(list);
-		whileloop(list);
-		foreach(list);
-		iterator(list);
-		java8streams(list);
-		java8foreach (list);
-		
+		Scanner sc = new Scanner(System.in);
 
-		
-	}
-	
-	public static void  forloop(List<Employee> list) {
-		System.out.println( "Using For loop" );
-		int max = 0;
-		for	(int i = 0; i<list.size();i++) {
-			if(max < list.get(i).getSalary()) {
-				max = list.get(i).getSalary();
-			}	
-		}
-		System.out.println( max );
-		
-	}
-	
-	public static void whileloop(List<Employee> list) {
-		System.out.println( "Using while loop" );
-		int max = 0;
-		int i = 0;
-		while	(i<list.size()) {
-			if(max < list.get(i).getSalary()) {
-				max = list.get(i).getSalary();
+		while(true) {
+			System.out.println("Choose loop by pressing corresponding numbers.\n"
+					+ "1. For loop\n"
+					+ "2. while loop\n"
+					+ "3. for-each loop\n"
+					+ "4. Iterator loop\n"
+					+ "5. java8 streams\n"
+					+ "6. java8 for-each\n"
+					+ "Enter 0 to exit\n");
+			int Choice = sc.nextInt();
+			if(Choice == 0) {
+				break;
 			}
-			i++;
-		}
-		System.out.println( max );
-	}
-	
-	public static void foreach(List<Employee> list) {
-		System.out.println( "Using For-Each loop" );
-		int max = 0;
-		for (Employee e : list) {
-			if(max < e.getSalary()) {
-				max = e.getSalary();
+			else {
+				LoopsInclosed.chooseLoop(Choice,list);
 			}
-		}
-		System.out.println( max );
+		}		
 	}
-	
-	public static void iterator (List<Employee> list) {
-		System.out.println( "Using iterator loop" );
-		int max = 0;
-		Iterator<Employee> it = list.iterator();
-		while(it.hasNext()) {
-			Employee emp = (Employee) it.next();
-			if(max < emp.getSalary() ) {
-				max = emp.getSalary();
-			}
-		}
-		System.out.println( max );
-	}
-	
-	
-	public static void java8foreach (List<Employee> list) {
-		System.out.println( "Using java8foreach loop, Finding salaies greater than given value" );
-		int val = 100000;
-		list.forEach( (Employee)-> { 
-			if(val < Employee.getSalary() ) {
-				System.out.println(Employee.getName() + " gets " +Employee.getSalary());
-			}	
-		});		
-	}
-	
-	public static void java8streams (List<Employee> list) {
-		System.out.println( "Using java8streams loop, Finding max salry" );
-		Comparator<Employee> comparator = Comparator.comparing( Employee::getSalary );
-		Employee maxObject = list.stream().max(comparator).get();
-		System.out.println(maxObject.getSalary());
-	}	
 }
 
 
