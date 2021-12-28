@@ -1,5 +1,5 @@
 
-public class Employee {
+public class Employee1 {
 	public String name;
 	public int age;
 	public int salary;
@@ -7,7 +7,7 @@ public class Employee {
 
 
 
-	public Employee(String name, int age, int salary) {
+	public Employee1(String name, int age, int salary) {
 		// TODO Auto-generated constructor stub
 		this.name = name;
 		this.age = age;
