@@ -1,7 +1,0 @@
-<suite name="Practice Suite">   
-  <test name="Test Basics 2">    
-    <classes>
-       <class name="TC_HomeRegister"/>
-    </classes> 
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
